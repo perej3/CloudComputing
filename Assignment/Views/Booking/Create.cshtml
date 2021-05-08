@@ -1,0 +1,197 @@
+﻿@model Assignment.Domain.Booking
+@inject Assignment.DataAccess.Interfaces.ICachingService CacheService
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+
+    #map {
+        height: 100%;
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: "Roboto", "sans-serif";
+        line-height: 30px;
+        padding-left: 10px;
+    }
+</style>
+
+<script>
+    var geocoder;
+    var map;
+    var totalmarkers = [];
+    var totalmarkers1 = [];
+    function initMap() {
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(35.9440174, 14.3795242);
+        var mapOptions = {
+            zoom: 11,
+            center: latlng
+        }
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        geocoder1 = new google.maps.Geocoder();
+        var latlng1 = new google.maps.LatLng(35.9440174, 14.3795242);
+        var mapOptions1 = {
+            zoom: 11,
+            center: latlng1
+        }
+        map1 = new google.maps.Map(document.getElementById('map1'), mapOptions1);
+    }
+
+
+    function codeAddress() {
+
+        if (totalmarkers.length >= 1) {
+            for (var i = 0; i < totalmarkers.length; i++) {
+                totalmarkers[i].setMap(null);
+            }
+            totalmarkers = [];
+        }
+
+        var address = document.getElementById('address').value;
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == 'OK') {
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
+                document.getElementById("latitude").value = latitude;
+                document.getElementById("longitude").value = longitude;
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+                totalmarkers.push(marker);
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+
+    function codeAddress1() {
+
+        if (totalmarkers1.length >= 1) {
+            for (var i = 0; i < totalmarkers1.length; i++) {
+                totalmarkers1[i].setMap(null);
+            }
+            totalmarkers1 = [];
+        }
+
+        var address = document.getElementById('address1').value;
+        geocoder1.geocode({ 'address': address }, function (results, status) {
+            if (status == 'OK') {
+                var latitudeTo = results[0].geometry.location.lat();
+                var longitudeTo = results[0].geometry.location.lng();
+                document.getElementById("latitudeTo").value = latitudeTo;
+                document.getElementById("longitudeTo").value = longitudeTo;
+                map1.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map1,
+                    position: results[0].geometry.location
+                });
+                totalmarkers1.push(marker);
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+<h1>Create</h1>
+
+<h4>Booking</h4>
+
+<body>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div class="form-group" id="map" style="width: 700px; height: 650px;"></div>
+                <div>
+                    <label class="control-label">Choose Location</label>
+                    <input class="form-control" id="address" type="textbox" value="Gozo">
+                    <br />
+                    <input class="btn btn-primary" type="button" value="Search" onclick="codeAddress()">
+                </div>
+                <br />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    
+                    <input type="hidden" id="latitude" asp-for="latitude" class="form-control" />
+                    <span asp-validation-for="latitude" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    
+                    <input type="hidden" id="longitude" asp-for="longitude" class="form-control" />
+                    <span asp-validation-for="longitude" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" id="map1" style="width: 700px; height: 650px;"></div>
+                <div>
+                    <label class="control-label">Choose Destination</label>
+                    <input class="form-control" id="address1" type="textbox" value="MCAST">
+                    <br />
+                    <input class="btn btn-primary" type="button" value="Search" onclick="codeAddress1()">
+                </div>
+                <br />
+                <div class="form-group">
+                    
+                    <input type="hidden" id="latitudeTo" asp-for="latitudeTo" class="form-control" />
+                    <span asp-validation-for="latitudeTo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    
+                    <input type="hidden" id="longitudeTo" asp-for="longitudeTo" class="form-control" />
+                    <span asp-validation-for="longitudeTo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Category</label>
+                    <br />
+                    <select asp-for="CategoryId" class="form-control">
+                        @foreach (var category in CacheService.GetCategories())
+                        {
+                            <option value="@category.CategoryId">@category.Name</option>
+
+                        }
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABdtaiDeNBzSho-4vcqh2jj5mA8l1Z09U&callback=initMap&libraries=&v=weekly"
+            async></script>
+
+</body>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

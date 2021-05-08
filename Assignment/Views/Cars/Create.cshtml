@@ -1,0 +1,71 @@
+﻿@model Assignment.Domain.Car
+@inject Assignment.DataAccess.Interfaces.ICachingService CacheService
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Car</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RegistrationPlate" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Capacity" class="control-label"></label>
+                <input asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Condition" class="control-label"></label>
+                <input type="text" asp-for="Condition" class="form-control" />
+                <span asp-validation-for="Condition" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Wifi" /> @Html.DisplayNameFor(model => model.Wifi)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Aircondition" /> @Html.DisplayNameFor(model => model.Aircondition)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FoodDrinks" /> @Html.DisplayNameFor(model => model.FoodDrinks)
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Upload a file</label>
+                <input type="file" name="image" class="form-control" />
+                <span name="image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Category</label>
+                <br/>
+                <select asp-for="CategoryId" class="form-control">
+                    @foreach (var category in CacheService.GetCategories())
+                     {
+                        <option value="@category.CategoryId">@category.Name</option>  
+                     }
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

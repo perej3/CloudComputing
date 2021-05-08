@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pristine-abacus-307313",
+  "private_key_id": "5bc44a544508b035f50b632fa9f66d42e1fcb583",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDmRVQJ7TRI3yDF\nQuomDTVcOCi+3V5T20dUPS/FTVgihLc2W//cgzGu/qGScguLVXJbVp1TLvZcV1WN\ndWkZHIXE0sdVO2JE5F3g4y92pfR+xW0DNOoFMTW9srsATo5lLq4I6kb7FSQ3LDnk\nrfIcIKLOoOgHDzzLr9aTQxy/HGoGbgRj0bN15AjDlZ3WwiyuMYV0ofCRVKnJR3Qu\nnYfJ5Cp1gE6i0wpDUNHhI4UbedoMwNniby/qcFoQHMfFwXjQ4ZSQNFwMldoyPpYI\nnj4jAV3+E10TqTV2ZsY+MQKa/R2Mw59XJNhnTcwwbsXLCHRkCqbsI6Sw8LweeCle\nrVSFf/eJAgMBAAECggEACOzogj79vxJY/pRmp4VtC09I8wb5FEaEWAVMH/lswF/F\nCzgbLYSvTRFlGVxOyr6L4XL0w6fnGDKxZ/uEUJscq0GhRNI5r6Jrah9cNFzf4ncM\nD+sB5CQhaWIvYeZpmg3qZIGSMULDRdkywESmxQTV0q0FeVqTmHCPIGOiTl0PVgLk\nU5kpV3q8yBLZHSVUZMeGUwvmSLluQtYXiLiDFY7tXvLGwWYOEZ4JntX5opUIHneE\nLZPyv+QAgjZrkSUBT+M4gK+2/9fYAADlHOxqWtm+eh1JrFQfkgXTjFUnnoFBy+33\n8kmevM6fe+6E1R0VGSwoCS6GtMogg3EidetQiy9foQKBgQD/XHl+YR30Dzby3O+r\nwQ+2GLqKm6RS3kYfZ4bKrkZidh6sykYOXVWl9St3/jRBfCCqa2QUTJICDoGH4IQv\nyvzJA07QlDhy8lesgszrPdIaMYn5BVPxVO8J4tgukTp3UdAh8CWOUmdOYVP4TP1Z\nDcGiQQkq7DgfdRnxO/DumgQ6GQKBgQDm2MlcfwKsF2VTU0Sa3ZH3Afzhho9cj1AA\nRPr+gWAP6jQI+VkC4pG1i9FOIp8XXkyGhvqMIDLn/uSDCC09pV7sXOEka1rsxR1/\nJStQs6R8hph6fhC/ZF6CUXNJh1D+Cf83vUGMTL7Beb7xTi7CultWt7HBAvFemdVZ\nHBUCreQ28QKBgEVcT9/E70bgbxNucWccjHDwrJKDjhG4MCHNk+4vggyyesiCNJ8o\nOOBYBJOWJ4l19sVzX/6nga0vVX2bvSviHeFXlavP5rlKHAhOiuyGoS/eLtTF3rQZ\nVsg/pmqXpeLNBRSCzyCmP0sp4o36E4KB2wuAUMYo3WGmBALjPiEBEo7ZAoGBANKN\n6Rv0vPs6W7Ekwe5/KiOiLIWHtjs2fEHCqSx51KSveca1p/p5rW1pmf8qlPE7kZEi\njGRC+iug0cyyKJGRxILSNIiDYuuS3tSZkmiJcf4ixfD0C1KGua0jnYPzaGxNsful\nI6RUW6kc4ow2Q3BZifYOlpL1nDItHeupMYDAGugBAoGAfOTGCSX1WHOsS16eKCX1\npGcRrGdpiyqmTy3maVQ7CvEBeFe0BAWzQMzKRhtnFmlC4/+w2MylVJ1SpspGMjXF\n/zswIE9masJ1KtyRMoPSy8vdVQh3qP9XHGyRf+x5kidM2RKcVbMSn7iHDN5LPJK/\nJSJXIuuWH3fG082q/qjfhWQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "assignment-serviceaccount@pristine-abacus-307313.iam.gserviceaccount.com",
+  "client_id": "109433633536379433600",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/assignment-serviceaccount%40pristine-abacus-307313.iam.gserviceaccount.com"
+}

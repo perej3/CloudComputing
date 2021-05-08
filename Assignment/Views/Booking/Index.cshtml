@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Assignment.Domain.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.longitudeTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.latitudeTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.longitudeTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.latitudeTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
